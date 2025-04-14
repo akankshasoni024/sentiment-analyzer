@@ -6,7 +6,11 @@ from flask_cors import CORS
 nltk.download('vader_lexicon')
 
 app = Flask(__name__)
-CORS(app)  # This fixes CORS issues
+
+@app.route('/')
+def hello():
+    return "Hello, World!"
+
 
 sia = SentimentIntensityAnalyzer()
 
@@ -40,3 +44,4 @@ def analyze():
 
 if __name__ == '__main__':
     app.run(debug=True)
+
